@@ -268,50 +268,74 @@
 .edu-entry {
     background: #fff;
     border: 1px solid $grey-color-light;
-    border-left: 3px solid $accent-color;
-    border-radius: 0 6px 6px 0;
-    padding: 14px 18px;
-    margin-bottom: 12px;
-    box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+    border-radius: 8px;
+    padding: 22px 24px;
+    margin-bottom: 16px;
+    box-shadow: 0 2px 12px rgba(0,0,0,0.06);
+    position: relative;
+    overflow: hidden;
     transition: box-shadow 0.2s ease, transform 0.2s ease;
 
+    &::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 4px;
+        height: 100%;
+        background: linear-gradient(180deg, $accent-color, $brand-color);
+    }
+
     &:hover {
-        box-shadow: 0 4px 16px rgba(0, 180, 216, 0.12);
-        transform: translateX(3px);
+        box-shadow: 0 6px 24px rgba(0, 180, 216, 0.15);
+        transform: translateY(-2px);
     }
 }
 
 .edu-header {
     display: flex;
     justify-content: space-between;
-    align-items: baseline;
-    margin-bottom: 4px;
+    align-items: flex-start;
+    margin-bottom: 6px;
+    gap: 12px;
 }
 
 .edu-degree {
-    font-weight: 600;
-    font-size: 1em;
+    font-weight: 700;
+    font-size: 1.05em;
     color: $header-bg;
+    line-height: 1.3;
 }
 
 .edu-dates {
-    font-size: 0.85em;
-    color: $grey-color;
+    font-size: 0.82em;
+    color: #fff;
+    background: linear-gradient(135deg, $header-bg, lighten($header-bg, 10%));
+    padding: 3px 10px;
+    border-radius: 12px;
     white-space: nowrap;
-    margin-left: 12px;
+    font-weight: 500;
+    flex-shrink: 0;
 }
 
 .edu-school {
-    font-size: 0.92em;
+    font-size: 0.95em;
     color: $grey-color-dark;
-    margin-bottom: 4px;
+    font-weight: 500;
+    margin-bottom: 10px;
 }
 
 .edu-gpa {
-    font-size: 0.82em;
+    display: inline-block;
+    font-size: 0.8em;
     color: $accent-color;
-    font-weight: 600;
-    letter-spacing: 0.3px;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+    border: 1px solid rgba(0, 180, 216, 0.3);
+    background: rgba(0, 180, 216, 0.06);
+    padding: 2px 10px;
+    border-radius: 10px;
+    text-transform: uppercase;
 }
 
 /**
