@@ -224,8 +224,7 @@
  */
 .post-content h3,
 .home h3 {
-    & + p,
-    & + ul {
+    & + p {
         background: #fff;
         border: 1px solid $grey-color-light;
         border-left: 3px solid $accent-color;
@@ -238,6 +237,27 @@
         &:hover {
             box-shadow: 0 4px 16px rgba(0, 180, 216, 0.12);
             transform: translateX(3px);
+        }
+    }
+
+    & + ul {
+        list-style: none;
+        margin-left: 0;
+
+        li {
+            background: #fff;
+            border: 1px solid $grey-color-light;
+            border-left: 3px solid $accent-color;
+            border-radius: 0 6px 6px 0;
+            padding: 10px 16px;
+            margin-bottom: 6px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+            transition: box-shadow 0.2s ease, transform 0.2s ease;
+
+            &:hover {
+                box-shadow: 0 4px 16px rgba(0, 180, 216, 0.12);
+                transform: translateX(3px);
+            }
         }
     }
 }
