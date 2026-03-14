@@ -1,5 +1,5 @@
 /**
- * Reset some basic elements
+ * Reset
  */
 body, h1, h2, h3, h4, h5, h6,
 p, blockquote, pre, hr,
@@ -7,8 +7,6 @@ dl, dd, ol, ul, figure {
     margin: 0;
     padding: 0;
 }
-
-
 
 /**
  * Basic styling
@@ -18,17 +16,11 @@ body {
     color: $text-color;
     background-color: $background-color;
     -webkit-text-size-adjust: 100%;
-    -webkit-font-feature-settings: "kern" 1;
-    -moz-font-feature-settings: "kern" 1;
-    -o-font-feature-settings: "kern" 1;
-    font-feature-settings: "kern" 1;
     font-kerning: normal;
 }
 
-
-
 /**
- * Set `margin-bottom` to maintain vertical rhythm
+ * Vertical rhythm
  */
 h1, h2, h3, h4, h5, h6,
 p, blockquote, pre,
@@ -36,8 +28,6 @@ ul, ol, dl, figure,
 %vertical-rhythm {
     margin-bottom: $spacing-unit / 2;
 }
-
-
 
 /**
  * Images
@@ -47,11 +37,6 @@ img {
     vertical-align: middle;
 }
 
-
-
-/**
- * Figures
- */
 figure > img {
     display: block;
 }
@@ -59,8 +44,6 @@ figure > img {
 figcaption {
     font-size: $small-font-size;
 }
-
-
 
 /**
  * Lists
@@ -70,22 +53,41 @@ ul, ol {
 }
 
 li {
-    > ul,
-    > ol {
-         margin-bottom: 0;
+    > ul, > ol {
+        margin-bottom: 0;
     }
 }
-
-
 
 /**
  * Headings
  */
-h1, h2, h3, h4, h5, h6 {
-    font-weight: $base-font-weight;
+h1 {
+    font-size: 2.2em;
+    font-weight: 700;
+    letter-spacing: -0.5px;
+    color: $header-bg;
 }
 
+h2 {
+    font-size: 1.4em;
+    font-weight: 600;
+    color: $header-bg;
+    border-bottom: 2px solid $accent-color;
+    padding-bottom: 6px;
+    margin-top: $spacing-unit * 1.2;
+    margin-bottom: $spacing-unit / 2;
+}
 
+h3 {
+    font-size: 1.1em;
+    font-weight: 600;
+    color: $grey-color-dark;
+    margin-top: $spacing-unit;
+}
+
+h4, h5, h6 {
+    font-weight: 500;
+}
 
 /**
  * Links
@@ -93,28 +95,35 @@ h1, h2, h3, h4, h5, h6 {
 a {
     color: $brand-color;
     text-decoration: none;
+    transition: color 0.15s ease;
 
     &:visited {
-        color: darken($brand-color, 15%);
+        color: darken($brand-color, 10%);
     }
 
     &:hover {
-        color: $text-color;
-        text-decoration: underline;
+        color: $accent-color;
+        text-decoration: none;
     }
 }
 
-
+/**
+ * Horizontal rule
+ */
+hr {
+    border: none;
+    border-top: 1px solid $grey-color-light;
+    margin: $spacing-unit 0;
+}
 
 /**
  * Blockquotes
  */
 blockquote {
     color: $grey-color;
-    border-left: 4px solid $grey-color-light;
+    border-left: 4px solid $accent-color;
     padding-left: $spacing-unit / 2;
     font-size: 18px;
-    letter-spacing: -1px;
     font-style: italic;
 
     > :last-child {
@@ -122,17 +131,14 @@ blockquote {
     }
 }
 
-
-
 /**
- * Code formatting
+ * Code
  */
-pre,
-code {
+pre, code {
     font-size: 15px;
     border: 1px solid $grey-color-light;
-    border-radius: 3px;
-    background-color: #eef;
+    border-radius: 4px;
+    background-color: #f1f5f9;
 }
 
 code {
@@ -150,14 +156,11 @@ pre {
     }
 }
 
-
-
 /**
  * Wrapper
  */
 .wrapper {
-    max-width: -webkit-calc(#{$content-width} - (#{$spacing-unit} * 2));
-    max-width:         calc(#{$content-width} - (#{$spacing-unit} * 2));
+    max-width: calc(#{$content-width} - (#{$spacing-unit} * 2));
     margin-right: auto;
     margin-left: auto;
     padding-right: $spacing-unit;
@@ -165,20 +168,16 @@ pre {
     @extend %clearfix;
 
     @include media-query($on-laptop) {
-        max-width: -webkit-calc(#{$content-width} - (#{$spacing-unit}));
-        max-width:         calc(#{$content-width} - (#{$spacing-unit}));
+        max-width: calc(#{$content-width} - (#{$spacing-unit}));
         padding-right: $spacing-unit / 2;
         padding-left: $spacing-unit / 2;
     }
 }
 
-
-
 /**
  * Clearfix
  */
 %clearfix {
-
     &:after {
         content: "";
         display: table;
@@ -186,21 +185,16 @@ pre {
     }
 }
 
-
-
 /**
  * Icons
  */
-.icon {
+.icon > svg {
+    display: inline-block;
+    width: 16px;
+    height: 16px;
+    vertical-align: middle;
 
-    > svg {
-        display: inline-block;
-        width: 16px;
-        height: 16px;
-        vertical-align: middle;
-
-        path {
-            fill: $grey-color;
-        }
+    path {
+        fill: $grey-color;
     }
 }
