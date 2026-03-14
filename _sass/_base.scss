@@ -9,6 +9,41 @@ dl, dd, ol, ul, figure {
 }
 
 /**
+ * Animations
+ */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(24px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to   { opacity: 1; }
+}
+
+@keyframes expandWidth {
+    from { width: 0; }
+    to   { width: 100%; }
+}
+
+@keyframes scaleIn {
+    from {
+        opacity: 0;
+        transform: scale(0.96);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+/**
  * Basic styling
  */
 body {
@@ -37,57 +72,63 @@ img {
     vertical-align: middle;
 }
 
-figure > img {
-    display: block;
-}
-
-figcaption {
-    font-size: $small-font-size;
-}
+figure > img { display: block; }
+figcaption    { font-size: $small-font-size; }
 
 /**
  * Lists
  */
-ul, ol {
-    margin-left: $spacing-unit;
-}
+ul, ol { margin-left: $spacing-unit; }
 
 li {
-    > ul, > ol {
-        margin-bottom: 0;
-    }
+    > ul, > ol { margin-bottom: 0; }
 }
 
 /**
  * Headings
  */
 h1 {
-    font-size: 2.2em;
+    font-size: 2.4em;
     font-weight: 700;
     letter-spacing: -0.5px;
     color: $header-bg;
+    line-height: 1.2;
 }
 
 h2 {
-    font-size: 1.4em;
-    font-weight: 600;
+    font-size: 1.3em;
+    font-weight: 700;
     color: $header-bg;
-    border-bottom: 2px solid $accent-color;
-    padding-bottom: 6px;
-    margin-top: $spacing-unit * 1.2;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-top: $spacing-unit * 1.4;
     margin-bottom: $spacing-unit / 2;
+    padding-bottom: 8px;
+    position: relative;
+
+    &::after {
+        content: '';
+        display: block;
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        height: 2px;
+        background: linear-gradient(90deg, $accent-color, transparent);
+        animation: expandWidth 0.6s ease forwards;
+        animation-delay: 0.3s;
+        width: 0;
+    }
 }
 
 h3 {
-    font-size: 1.1em;
+    font-size: 1.05em;
     font-weight: 600;
     color: $grey-color-dark;
     margin-top: $spacing-unit;
+    line-height: 1.4;
 }
 
-h4, h5, h6 {
-    font-weight: 500;
-}
+h4, h5, h6 { font-weight: 500; }
 
 /**
  * Links
@@ -95,11 +136,9 @@ h4, h5, h6 {
 a {
     color: $brand-color;
     text-decoration: none;
-    transition: color 0.15s ease;
+    transition: color 0.2s ease;
 
-    &:visited {
-        color: darken($brand-color, 10%);
-    }
+    &:visited { color: darken($brand-color, 10%); }
 
     &:hover {
         color: $accent-color;
@@ -126,9 +165,7 @@ blockquote {
     font-size: 18px;
     font-style: italic;
 
-    > :last-child {
-        margin-bottom: 0;
-    }
+    > :last-child { margin-bottom: 0; }
 }
 
 /**
@@ -141,19 +178,13 @@ pre, code {
     background-color: #f1f5f9;
 }
 
-code {
-    padding: 1px 5px;
-}
+code { padding: 1px 5px; }
 
 pre {
     padding: 8px 12px;
     overflow-x: auto;
 
-    > code {
-        border: 0;
-        padding-right: 0;
-        padding-left: 0;
-    }
+    > code { border: 0; padding: 0; }
 }
 
 /**
@@ -194,7 +225,34 @@ pre {
     height: 16px;
     vertical-align: middle;
 
-    path {
-        fill: $grey-color;
+    path { fill: $grey-color; }
+}
+
+/**
+ * Skill tags
+ */
+.skill-tags {
+    list-style: none;
+    margin-left: 0;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-bottom: $spacing-unit / 2;
+
+    li {
+        background: linear-gradient(135deg, $header-bg, lighten($header-bg, 10%));
+        color: #e2e8f0;
+        padding: 4px 14px;
+        border-radius: 20px;
+        font-size: 0.82em;
+        font-weight: 500;
+        letter-spacing: 0.3px;
+        transition: transform 0.2s ease, box-shadow 0.2s ease;
+        margin-bottom: 0;
+
+        &:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(0, 180, 216, 0.3);
+        }
     }
 }
